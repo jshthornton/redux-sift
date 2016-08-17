@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/mocha --compilers js:babel-register 'src/**/*-test.js'"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,21 @@
   "bugs": {
     "url": "https://github.com/jshthornton/redux-sift/issues"
   },
-  "homepage": "https://github.com/jshthornton/redux-sift#readme"
+  "homepage": "https://github.com/jshthornton/redux-sift#readme",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.13.2",
+    "babel-register": "^6.11.6",
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "sinon": "^1.17.5"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "lodash": "^4.15.0",
+    "redux-actions": "^0.10.1",
+    "redux-create-reducer": "^1.1.1"
+  },
+  "peerDependencies": {
+    "redux": "^3.5.2"
+  }
 }
