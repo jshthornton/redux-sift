@@ -3,6 +3,7 @@ import { expect } from 'chai';
 import {
   addFilter,
   removeFilter,
+  updateFilter,
   reset
 } from '../../messages';
 import Immutable from 'immutable';
@@ -48,6 +49,23 @@ describe('reducers/filters', function() {
       }), action);
 
       expect(state).to.eql(initialState);
+    });
+  });
+
+  describe('M_UPDATE_FILTER', function() {
+    it('changes the value of a filter', function() {
+      const action = updateFilter({
+        key: 'foo',
+        value: 'baz'
+      });
+
+      const state = filters(new Immutable.Map({
+        foo: 'bar'
+      }), action);
+
+      expect(state.toJS()).to.eql({
+        foo: 'baz'
+      });
     });
   });
 });
